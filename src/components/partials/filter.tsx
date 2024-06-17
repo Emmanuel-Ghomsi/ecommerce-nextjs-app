@@ -27,7 +27,7 @@ export default function FilterCategory() {
     <div className="mt-12 flex justify-between">
       <div>
         <Select onValueChange={handleFilterChange}>
-          <SelectTrigger className="w-[150px] py-2 px-4 rounded-2xl text-xs font-medium bg-white ring-1 ring-gray-400">
+          <SelectTrigger className="w-[150px] rounded-2xl bg-white px-4 py-2 text-xs font-medium ring-1 ring-gray-400">
             <SelectValue placeholder="Trier par" />
           </SelectTrigger>
           <SelectContent>

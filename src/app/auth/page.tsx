@@ -31,7 +31,7 @@ export default function AuthPage() {
 
   useEffect(() => {
     if (!isEmptyAuthObject(auth)) router.push("/");
-  }, [auth]);
+  }, [auth, router]);
 
   const mutationLogin = useMutation({
     mutationKey: ["logIn"],
@@ -79,12 +79,12 @@ export default function AuthPage() {
   };
 
   return (
-    <div className="h-[calc(100vh-80px)] px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 flex items-center justify-center">
+    <div className="flex h-[calc(100vh-80px)] items-center justify-center px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
       <form className="flex flex-col gap-8" onSubmit={handleSubmit}>
         <h1 className="text-2xl font-semibold">{formTitle}</h1>
 
         <div className="flex flex-col gap-2">
-          <Label>Nom d'utilisateur</Label>
+          <Label>{"Nom d'utilisateur"}</Label>
           <Input
             type="text"
             name="username"
@@ -117,18 +117,18 @@ export default function AuthPage() {
 
         <Button
           type="submit"
-          className="bg-lama text-white p-2 rounded-md disabled:bg-pink-200 disabled:cursor-not-allowed"
+          className="rounded-md bg-lama p-2 text-white disabled:cursor-not-allowed disabled:bg-pink-200"
           disabled={mutationLogin.isPending}
         >
           {buttonTitle}
         </Button>
 
-        {error && <div className="text-red-600 text-xs">{error}</div>}
+        {error && <div className="text-xs text-red-600">{error}</div>}
 
         {mode === MODE.LOGIN && (
           <>
             <div
-              className="text-sm text-center underline cursor-pointer"
+              className="cursor-pointer text-center text-sm underline"
               onClick={() => setMode(MODE.REGISTER)}
             >
               Pas de compte ?
@@ -136,7 +136,7 @@ export default function AuthPage() {
             <div className="text-sm">
               <h4>Vous pouvez utiliser ces identifiants de connexion :</h4>
               <p className="text-center">
-                Nom d'utilisateur :{" "}
+                {"Nom d'utilisateur"} :{" "}
                 <span className="font-semibold">emilys</span>
               </p>
               <p className="text-center">
@@ -147,7 +147,7 @@ export default function AuthPage() {
         )}
         {mode === MODE.REGISTER && (
           <div
-            className="text-sm text-center underline cursor-pointer"
+            className="cursor-pointer text-center text-sm underline"
             onClick={() => setMode(MODE.LOGIN)}
           >
             Vous possedez un compte ?

@@ -26,10 +26,10 @@ export const AddToCart = ({
 
   return (
     <div className="flex flex-col gap-4">
-      <h4 className="font-semibold text-sm">Choisir la quantité</h4>
+      <h4 className="text-sm font-semibold">Choisir la quantité</h4>
       <div className="flex justify-between">
         <div className="flex items-center gap-4">
-          <div className="bg-gray-100 py-2 px-4 rounded-3xl flex items-center justify-between w-32">
+          <div className="flex w-32 items-center justify-between rounded-3xl bg-gray-100 px-4 py-2">
             <button
               className="cursor-pointer text-xl disabled:cursor-not-allowed disabled:opacity-20"
               onClick={() => handleQuantity("d")}
@@ -48,7 +48,7 @@ export const AddToCart = ({
           </div>
           {stockNumber < 1 ? (
             <div className="text-xs">
-              Le produit n'est plus disponible en stock
+              {"Le produit n'est plus disponible en stock"}
             </div>
           ) : (
             <div className="text-xs">

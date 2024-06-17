@@ -15,18 +15,18 @@ export default function CategoryList() {
 
   if (isLoading) return <SkeletonCategoryUI />;
 
-  if (isError) return <p>Une erreur s'est produite !</p>;
+  if (isError) return <p>{"Une erreur s'est produite !"}</p>;
 
   return (
-    <div className="px-4 overflow-x-scroll scrollbar-hide">
+    <div className="scrollbar-hide overflow-x-scroll px-4">
       <div className="flex gap-4 md:gap-8">
         {data.map((category: Category) => (
           <Link
             href={`/list?category=${category.slug}`}
-            className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 xl:w-1/6"
+            className="w-full shrink-0 sm:w-1/2 lg:w-1/4 xl:w-1/6"
             key={category.name}
           >
-            <div className="relative bg-slate-100 w-full h-96">
+            <div className="relative h-96 w-full bg-slate-100">
               <Image
                 src={`https://ui-avatars.com/api/?name=${category.slug}&size=600&background=1f95de&color=fff`}
                 alt={category.name}
@@ -36,7 +36,7 @@ export default function CategoryList() {
                 className="object-cover"
               />
             </div>
-            <h1 className="mt-8 font-light text-xl tracking-wide">
+            <h1 className="mt-8 text-xl font-light tracking-wide">
               {category.name}
             </h1>
           </Link>

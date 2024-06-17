@@ -14,20 +14,20 @@ export const ProductImages = ({
 
   return (
     <div className="">
-      <div className="h-[500px] relative">
+      <div className="relative h-[500px]">
         <Image
           src={images![index]}
           alt={title}
           fill
           sizes="50vw"
-          className="object-cover rounded-md"
+          className="rounded-md object-cover"
         />
       </div>
       {images && (
-        <div className="flex justify-between gap-4 mt-8">
+        <div className="mt-8 flex justify-between gap-4">
           {images.map((item: string, i: number) => (
             <div
-              className="w-1/4 h-32 relative gap-4 mt-8 cursor-pointer"
+              className="relative mt-8 h-32 w-1/4 cursor-pointer gap-4"
               key={i}
               onClick={() => setIndex(i)}
             >
@@ -36,7 +36,7 @@ export const ProductImages = ({
                 alt={title}
                 fill
                 sizes="30vw"
-                className="object-cover rounded-md"
+                className="rounded-md object-cover"
               />
             </div>
           ))}

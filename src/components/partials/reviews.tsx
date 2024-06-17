@@ -19,7 +19,7 @@ export const Reviews = async ({ reviews }: { reviews: any }) => {
       {/* DESCRIPTION */}
       {review.comment && <p>{review.comment}</p>}
       {review.date && (
-        <p className="italic text-xs">
+        <p className="text-xs italic">
           <Date dateString={review.date} />
         </p>
       )}

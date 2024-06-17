@@ -26,34 +26,35 @@ export default function Slider() {
   return (
     <div className="h-[calc(100vh-80px)] overflow-hidden">
       <div
-        className="w-max h-full flex transition-all ease-in-out duration-1000"
+        className="flex h-full w-max transition-all duration-1000 ease-in-out"
         style={{ transform: `translateX(-${current * 100}vw)` }}
       >
         {data?.products.map((product: Product) => (
           <div
-            className={`w-screen h-full flex flex-col gap-16 xl:flex-row`}
+            className={`flex h-full w-screen flex-col gap-16 xl:flex-row`}
             key={product.id}
           >
             {/* TEXTE CONTAINER */}
-            <div className="h-1/2 xl:w-1/2 xl:h-full flex flex-col items-center justify-center gap-8 2xl:gap-12 text-center">
+            <div className="flex h-1/2 flex-col items-center justify-center gap-8 text-center xl:h-full xl:w-1/2 2xl:gap-12">
               <h2 className="text-xl lg:text-3xl 2xl:text-5xl">
                 {product.warrantyInformation}
               </h2>
-              <h1 className="text-5xl lg:text-6xl 2xl:text-8xl font-semibold">
+              <h1 className="text-5xl font-semibold lg:text-6xl 2xl:text-8xl">
                 {product.title}
               </h1>
-              <Link href={`/${product.id}`}>
+              <Link href={`/product/${product.id}`}>
                 <Button className="uppercase">Acheter maintenant</Button>
               </Link>
             </div>
 
             {/* IMAGE CONTAINER */}
-            <div className="h-1/2 xl:w-1/2 xl:h-full relative">
+            <div className="relative h-1/2 xl:h-full xl:w-1/2">
               <Image
                 src={product.images[0]}
                 alt={product.title}
                 fill
                 sizes="100%"
+                // eslint-disable-next-line tailwindcss/no-custom-classname
                 className="object-fit"
               />
             </div>
@@ -62,17 +63,17 @@ export default function Slider() {
       </div>
 
       {/* DOTS */}
-      <div className="absolute m-auto left-1/2 bottom-8 flex gap-4">
+      <div className="absolute bottom-8 left-1/2 m-auto flex gap-4">
         {data?.products.map((product: Product, index: number) => (
           <div
-            className={`w-3 h-3  rounded-full ring-1 ring-gray-600 cursor-pointer flex items-center justify-center ${
+            className={`flex size-3 cursor-pointer items-center justify-center rounded-full ring-1 ring-gray-600 ${
               current === index ? "scale-150" : ""
             }`}
             key={product.id}
             onClick={() => setCurrent(index)}
           >
             {current === index && (
-              <div className="w-[6px] h-[6px] bg-gray-600 rounded-full"></div>
+              <div className="size-[6px] rounded-full bg-gray-600"></div>
             )}
           </div>
         ))}

@@ -8,13 +8,14 @@ import {
 
 export const Footer = async () => {
   return (
-    <div className="py-24 px-4 md:px-8 lg:px-16 xl:32 2xl:px-64 bg-gray-100 text-sm mt-24">
+    // eslint-disable-next-line tailwindcss/no-custom-classname
+    <div className="xl:32 mt-24 bg-gray-100 px-4 py-24 text-sm md:px-8 lg:px-16 2xl:px-64">
       {/* HAUT */}
-      <div className="flex flex-col md:flex-row justify-between gap-24">
+      <div className="flex flex-col justify-between gap-24 md:flex-row">
         {/* LEFT */}
-        <div className="w-full md:w-1/2 lg:w-1/4 flex flex-col gap-8">
+        <div className="flex w-full flex-col gap-8 md:w-1/2 lg:w-1/4">
           <Link href="/">
-            <div className="text-2xl tracking-wide uppercase">
+            <div className="text-2xl uppercase tracking-wide">
               Test dev frontend
             </div>
           </Link>
@@ -23,7 +24,7 @@ export const Footer = async () => {
         </div>
 
         {/* RIGHT */}
-        <div className="w-full md:w-1/2 lg:w-1/4 flex flex-col gap-8">
+        <div className="flex w-full flex-col gap-8 md:w-1/2 lg:w-1/4">
           <span className="font-semibold">Réseaux sociaux</span>
           <div className="flex gap-6">
             <Button
@@ -35,7 +36,7 @@ export const Footer = async () => {
                 href="https://www.linkedin.com/in/emmanuel-ghomsi-ghomsi-7b97671b4/"
                 target="_blank"
               >
-                <LinkedInLogoIcon className="h-5 w-5" />
+                <LinkedInLogoIcon className="size-5" />
               </Link>
             </Button>
             <Button
@@ -44,12 +45,12 @@ export const Footer = async () => {
               className="text-blue-400 hover:text-blue-600"
             >
               <Link href="https://twitter.com/GhomsiEmmanuel" target="_blank">
-                <TwitterLogoIcon className="h-5 w-5" />
+                <TwitterLogoIcon className="size-5" />
               </Link>
             </Button>
             <Button variant="outline" size="icon" className="text-gray-700">
               <Link href="https://github.com/Emmanuel-Ghomsi" target="_blank">
-                <GitHubLogoIcon className="h-5 w-5" />
+                <GitHubLogoIcon className="size-5" />
               </Link>
             </Button>
           </div>
@@ -57,7 +58,7 @@ export const Footer = async () => {
       </div>
 
       {/* BAS */}
-      <div className="flex items-center justify-center gap-8 mt-5">
+      <div className="mt-5 flex items-center justify-center gap-8">
         <div>© 2024</div>
       </div>
     </div>

@@ -94,7 +94,12 @@ Ce plugin améliore la productivité en assurant que les classes Tailwind sont u
    git clone https://github.com/Emmanuel-Ghomsi/ecommerce-nextjs-app.git
    ```
 
-2. Installez les dépendances pour le projet :
+2. Copier et renommer le fichier `.env.example` en `.env` :
+   ```bash
+   cp .env.example .env
+   ```
+
+3. Installez les dépendances pour le projet :
    ```bash
    cd ecommerce-nextjs-app
    npm install

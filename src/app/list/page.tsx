@@ -6,13 +6,15 @@ import { Suspense } from "react";
 
 export default function ListPage({ searchParams }: { searchParams: any }) {
   return (
-    <div className="px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative">
+    <div className="relative px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
       {/* FILTRE */}
       <FilterCategory />
 
       {/* PRODUITS */}
       <h1 className="mt-12 text-xl font-semibold">
-        Les produits de la catégorie "{ucfirst(searchParams.category)}"
+        Les produits de la catégorie {'"'}
+        {ucfirst(searchParams.category)}
+        {'"'}
       </h1>
       <Suspense fallback={<SkeletonProductUI />}>
         <ProductList

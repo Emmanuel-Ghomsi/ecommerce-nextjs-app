@@ -25,12 +25,12 @@ export default function CartPage() {
     } else {
       setShow(false);
     }
-  }, [auth]);
+  }, [auth, getCarts]);
 
   return (
-    <div className="flex flex-col md:flex-row gap-24 md:h-[calc(100vh-180px)] items-center px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
+    <div className="flex flex-col items-center gap-24 px-4 md:h-[calc(100vh-180px)] md:flex-row md:px-8 lg:px-16 xl:px-32 2xl:px-64">
       <div className="w-full md:w-1/2">
-        <h1 className="text-2xl mb-12">
+        <h1 className="mb-12 text-2xl">
           Liste des paniers de {auth.firstName + " " + auth.lastName}
         </h1>
         <Table>
@@ -52,7 +52,7 @@ export default function CartPage() {
               ))
             ) : (
               <TableRow>
-                <TableCell className="font-medium text-center" colSpan={3}>
+                <TableCell className="text-center font-medium" colSpan={3}>
                   Aucun panier
                 </TableCell>
               </TableRow>

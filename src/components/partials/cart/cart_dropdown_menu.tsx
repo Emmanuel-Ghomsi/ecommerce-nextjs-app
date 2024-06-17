@@ -35,25 +35,25 @@ export const CartDropDownMenu = (props: CartDropDownMenuProps) => {
             <DropdownMenuItem>Le panier est vide</DropdownMenuItem>
           ) : (
             <>
-              <DropdownMenuItem className="flex flex-col gap-8 w-full items-start">
+              <DropdownMenuItem className="flex w-full flex-col items-start gap-8">
                 {cart.products.map((product) => (
-                  <div key={product.id} className="flex gap-4 w-full">
+                  <div key={product.id} className="flex w-full gap-4">
                     {/* IMAGE */}
                     <Image
                       src={product.thumbnail}
                       alt={product.title}
                       width={100}
                       height={100}
-                      className="object-cover rounded-md"
+                      className="rounded-md object-cover"
                     />
 
-                    <div className="flex flex-col justify-between w-full">
+                    <div className="flex w-full flex-col justify-between">
                       {/* EN TÊTE */}
                       <div>
                         {/* TITRE */}
                         <div className="flex items-center justify-between gap-8">
                           <h3 className="font-semibold">{product.title}</h3>
-                          <div className="p-1 bg-gray-50 rounded-sm flex items-center gap-2">
+                          <div className="flex items-center gap-2 rounded-sm bg-gray-50 p-1">
                             {product.quantity && product.quantity > 1 && (
                               <div className="text-xs text-green-500">
                                 {product.quantity} x{" "}
@@ -70,7 +70,7 @@ export const CartDropDownMenu = (props: CartDropDownMenuProps) => {
                           Qte : {product.quantity}
                         </span>
                         <span
-                          className="text-blue-500 cursor-pointer"
+                          className="cursor-pointer text-blue-500"
                           onClick={(e) => {
                             e.preventDefault();
 
@@ -99,14 +99,14 @@ export const CartDropDownMenu = (props: CartDropDownMenuProps) => {
                 ))}
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem className="flex flex-col w-full">
-                <div className="flex items-center justify-between font-semibold w-full">
+              <DropdownMenuItem className="flex w-full flex-col">
+                <div className="flex w-full items-center justify-between font-semibold">
                   <span>Sous total</span>
                   <span>${cart.total}</span>
                 </div>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem className="flex justify-between text-sm w-full">
+              <DropdownMenuItem className="flex w-full justify-between text-sm">
                 <Button
                   variant="outline"
                   onClick={() => {

@@ -31,7 +31,7 @@ export const Providers = (props: ProvidersProps) => {
         });
       }
     }
-  }, [auth, token]);
+  }, [auth, getAuth, logOut, token]);
 
   return (
     <>

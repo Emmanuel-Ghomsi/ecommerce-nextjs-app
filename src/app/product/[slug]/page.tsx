@@ -17,33 +17,33 @@ const SinglePage = ({ params }: { params: { slug: string } }) => {
 
   if (isLoading) return <SkeletonProductDetailUI />;
 
-  if (isError) return <p>Une erreur s'est produite !</p>;
+  if (isError) return <p>{"Une erreur s'est produite !"}</p>;
 
   return (
-    <div className="px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative flex flex-col lg:flex-row gap-16">
+    <div className="relative flex flex-col gap-16 px-4 md:px-8 lg:flex-row lg:px-16 xl:px-32 2xl:px-64">
       {/* IMAGE */}
-      <div className="w-full lg:w-1/2 lg:sticky top-20 h-max">
+      <div className="top-20 h-max w-full lg:sticky lg:w-1/2">
         <ProductImages title={data.title} images={data.images} />
       </div>
 
       {/* TEXTES */}
-      <div className="w-full lg:w-1/2 flex flex-col gap-6">
-        <div className="flex justify-between items-center gap-12">
+      <div className="flex w-full flex-col gap-6 lg:w-1/2">
+        <div className="flex items-center justify-between gap-12">
           <h1 className="text-4xl font-medium">{data.title}</h1>
-          <span className="text-sm text-white font-semibold p-2 bg-slate-700 rounded-full">
+          <span className="rounded-full bg-slate-700 p-2 text-sm font-semibold text-white">
             {ucfirst(data.category)}
           </span>
         </div>
         <p className="text-gray-500">{data.description}</p>
         <div className="h-[2px] bg-gray-100" />
         {data.price === data.discountPercentage ? (
-          <h2 className="font-medium text-2xl">${data.price}</h2>
+          <h2 className="text-2xl font-medium">${data.price}</h2>
         ) : (
           <div className="flex items-center gap-4">
             <h3 className="text-xl text-gray-500 line-through">
               ${data.price}
             </h3>
-            <h2 className="font-medium text-2xl">${data.discountPercentage}</h2>
+            <h2 className="text-2xl font-medium">${data.discountPercentage}</h2>
           </div>
         )}
 
@@ -51,15 +51,15 @@ const SinglePage = ({ params }: { params: { slug: string } }) => {
 
         {data.dimensions && (
           <>
-            <h4 className="font-semibold text-sm">Dimensions</h4>
+            <h4 className="text-sm font-semibold">Dimensions</h4>
             <ul className="flex items-center gap-3">
-              <li className="ring-1 rounded-md py-1 px-4 text-sm">
+              <li className="rounded-md px-4 py-1 text-sm ring-1">
                 Largeur : {data.dimensions.width}
               </li>
-              <li className="ring-1 rounded-md py-1 px-4 text-sm">
+              <li className="rounded-md px-4 py-1 text-sm ring-1">
                 Hauteur : {data.dimensions.height}
               </li>
-              <li className="ring-1 rounded-md py-1 px-4 text-sm">
+              <li className="rounded-md px-4 py-1 text-sm ring-1">
                 Profondeur : {data.dimensions.depth}
               </li>
             </ul>
@@ -74,18 +74,18 @@ const SinglePage = ({ params }: { params: { slug: string } }) => {
         <h1 className="text-2xl">Informations Supplémentaires</h1>
         {data.availabilityStatus && (
           <div className="text-sm">
-            <h4 className="font-semibold mb-4">Statut</h4>
-            <span className="text-xs font-medium p-2 bg-orange-300 rounded-full">
+            <h4 className="mb-4 font-semibold">Statut</h4>
+            <span className="rounded-full bg-orange-300 p-2 text-xs font-medium">
               {data.availabilityStatus}
             </span>
           </div>
         )}
         {data.tags && (
-          <div className="text-xs flex justify-between items-center gap-2">
+          <div className="flex items-center justify-between gap-2 text-xs">
             {data.tags.map((tag: string, index: number) => {
               <span
                 key={index}
-                className="font-medium p-2 bg-slate-200 rounded-full"
+                className="rounded-full bg-slate-200 p-2 font-medium"
               >
                 {tag}
               </span>;
@@ -94,31 +94,31 @@ const SinglePage = ({ params }: { params: { slug: string } }) => {
         )}
         {data.brand && (
           <div className="text-sm">
-            <h4 className="font-semibold mb-4">Marque</h4>
+            <h4 className="mb-4 font-semibold">Marque</h4>
             <p>{data.brand}</p>
           </div>
         )}
         {data.weight && (
           <div className="text-sm">
-            <h4 className="font-semibold mb-4">Poids</h4>
+            <h4 className="mb-4 font-semibold">Poids</h4>
             <p>{data.weight} kg</p>
           </div>
         )}
         {data.warrantyInformation && (
           <div className="text-sm">
-            <h4 className="font-semibold mb-4">Informations de garantie</h4>
+            <h4 className="mb-4 font-semibold">Informations de garantie</h4>
             <p>{data.warrantyInformation}</p>
           </div>
         )}
         {data.shippingInformation && (
           <div className="text-sm">
-            <h4 className="font-semibold mb-4">Information de vente</h4>
+            <h4 className="mb-4 font-semibold">Information de vente</h4>
             <p>{data.shippingInformation}</p>
           </div>
         )}
         {data.returnPolicy && (
           <div className="text-sm">
-            <h4 className="font-semibold mb-4">Politique de retour</h4>
+            <h4 className="mb-4 font-semibold">Politique de retour</h4>
             <p>{data.returnPolicy}</p>
           </div>
         )}

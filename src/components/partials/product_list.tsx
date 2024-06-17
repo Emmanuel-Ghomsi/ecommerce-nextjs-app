@@ -40,7 +40,7 @@ export const ProductList = ({
 
   if (isLoading) return <SkeletonProductUI />;
 
-  if (isError) return <p>Une erreur s'est produite !</p>;
+  if (isError) return <p>{"Une erreur s'est produite !"}</p>;
 
   /* PAGINATION */
   const indexOfLastProduct =
@@ -75,23 +75,24 @@ export const ProductList = ({
   };
 
   return (
-    <div className="mt-12 flex gap-x-8 gap-y-16 justify-around flex-wrap">
+    <div className="mt-12 flex flex-wrap justify-around gap-x-8 gap-y-16">
       {currentProducts.map((product: Product) => (
         <Link
-          href={"/" + product.id}
-          className="w-full flex flex-col gap-4 sm:w-[45%] lg:w-[22%]"
+          href={"/product/" + product.id}
+          className="flex w-full flex-col gap-4 sm:w-[45%] lg:w-[22%]"
           key={product.id}
         >
           {/* IMAGES */}
-          <div className="relative w-full h-80">
+          <div className="relative h-80 w-full">
             <Image
               src={product.images[0]}
               alt={product.title}
               fill
               sizes="25vw"
-              className={`absolute object-cover rounded-md z-10 ${
+              // eslint-disable-next-line tailwindcss/no-custom-classname
+              className={`absolute z-10 rounded-md object-cover ${
                 product.images && product.images[1] ? "hover:opacity-0" : ""
-              } transition-opacity easy duration-500`}
+              } easy transition-opacity duration-500`}
             />
             {product.images && product.images[1] && (
               <Image
@@ -99,7 +100,7 @@ export const ProductList = ({
                 alt={product.title}
                 fill
                 sizes="25vw"
-                className="absolute object-cover rounded-md"
+                className="absolute rounded-md object-cover"
               />
             )}
           </div>
@@ -125,7 +126,7 @@ export const ProductList = ({
           {/* CTA */}
           <Button
             variant="outline"
-            className="rounded-2xl ring-1 ring-lama text-lama hover:bg-lama hover:text-white"
+            className="rounded-2xl text-lama ring-1 ring-lama hover:bg-lama hover:text-white"
           >
             Ajouter au panier
           </Button>
