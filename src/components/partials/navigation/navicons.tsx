@@ -18,26 +18,26 @@ export const NavIcons = () => {
     if (!isEmptyAuthObject(auth)) {
       getCart(String(auth.id));
     }
-  }, [auth]);
+  }, [auth, getCart]);
 
   return (
-    <div className="flex items-center gap-4 xl:gap-6 relative">
+    <div className="relative flex items-center gap-4 xl:gap-6">
       {/* PROFIL */}
       <ProfileDropDownMenu>
         <Button
           variant="outline"
           size="icon"
-          className="bg-transparent border-0 shadow-none"
+          className="border-0 bg-transparent shadow-none"
         >
-          <PersonIcon className="h-5 w-5" />
+          <PersonIcon className="size-5" />
         </Button>
       </ProfileDropDownMenu>
 
       {/* PANIER */}
       <CartDropDownMenu>
-        <div className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border-input hover:bg-accent hover:text-accent-foreground h-9 w-9 bg-transparent border-0 shadow-none cursor-pointer relative">
+        <div className="relative inline-flex size-9 cursor-pointer items-center justify-center whitespace-nowrap rounded-md border-0 border-input bg-transparent text-sm font-medium shadow-none transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
           <ShoppingCart size={22} />
-          <div className="absolute -top-2 -right-2 w-6 h-6 bg-lama rounded-full text-white text-sm flex items-center justify-center">
+          <div className="absolute -right-2 -top-2 flex size-6 items-center justify-center rounded-full bg-lama text-sm text-white">
             {counter}
           </div>
         </div>

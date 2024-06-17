@@ -17,7 +17,7 @@ export const SearchBar = () => {
 
   return (
     <form
-      className="flex items-center justify-between gap-4 bg-gray-100 p-2 rounded-md flex-1"
+      className="flex flex-1 items-center justify-between gap-4 rounded-md bg-gray-100 p-2"
       onSubmit={handleSearch}
     >
       <input
@@ -30,9 +30,9 @@ export const SearchBar = () => {
         type="submit"
         variant="outline"
         size="icon"
-        className="bg-transparent border-0 shadow-none"
+        className="border-0 bg-transparent shadow-none"
       >
-        <MagnifyingGlassIcon className="h-5 w-5" />
+        <MagnifyingGlassIcon className="size-5" />
       </Button>
     </form>
   );
