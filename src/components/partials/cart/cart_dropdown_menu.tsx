@@ -14,13 +14,11 @@ import { useAuthStore } from "@/hooks/useAuth";
 import { useCartStore } from "@/hooks/useCardStore";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { PropsWithChildren } from "react";
 
 export type CartDropDownMenuProps = PropsWithChildren;
 
 export const CartDropDownMenu = (props: CartDropDownMenuProps) => {
-  const router = useRouter();
   const { cart, updateCart, saveCart } = useCartStore();
   const { auth } = useAuthStore();
 
@@ -59,7 +57,7 @@ export const CartDropDownMenu = (props: CartDropDownMenuProps) => {
                                 {product.quantity} x{" "}
                               </div>
                             )}
-                            ${product.price}
+                            ${product.discountPercentage}
                           </div>
                         </div>
                       </div>
@@ -102,7 +100,7 @@ export const CartDropDownMenu = (props: CartDropDownMenuProps) => {
               <DropdownMenuItem className="flex w-full flex-col">
                 <div className="flex w-full items-center justify-between font-semibold">
                   <span>Sous total</span>
-                  <span>${cart.total}</span>
+                  <span>${cart.discountedTotal}</span>
                 </div>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
