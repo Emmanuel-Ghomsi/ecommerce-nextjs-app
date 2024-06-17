@@ -34,6 +34,7 @@ L'API utilisée pour ce projet est disponible à [dummyjson.com/docs](https://du
 - **Zod** : Validation de schémas TypeScript. [Documentation](https://zod.dev/)
 - **Isomorphic DOMPurify** : Nettoyage du HTML pour prévenir les attaques XSS. [Documentation](https://www.npmjs.com/package/isomorphic-dompurify)
 - **Zustand** : Gestion des états réactive et intuitive. [Documentation](https://docs.pmnd.rs/zustand/getting-started/introduction)
+- **date-fns** : Bibliothèque moderne d'utilitaires de dates en JavaScript. [Documentation](https://date-fns.org/)
 - **ESLint Plugin TailwindCSS** : Pour linting et une meilleure organisation des classes Tailwind. [Documentation](https://www.npmjs.com/package/eslint-plugin-tailwindcss)
 - **UI Avatars** : Génération d'avatars pour les utilisateurs. [Documentation](https://ui-avatars.com/)
 
@@ -70,6 +71,10 @@ Pour sécuriser l'application contre les attaques XSS, Isomorphic DOMPurify est 
 ### Zustand
 
 Zustand offre une gestion des états intuitive et légère, idéale pour les applications de petite à moyenne taille comme celle-ci.
+
+### date-fns
+
+date-fns fournit l'ensemble d'outils le plus complet, mais aussi le plus simple et le plus cohérent pour manipuler les dates JavaScript dans un navigateur et Node.js.
 
 ### ESLint Plugin TailwindCSS
 

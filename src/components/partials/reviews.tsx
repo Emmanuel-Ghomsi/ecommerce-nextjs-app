@@ -1,38 +1,28 @@
+import { Star } from "lucide-react";
+import { Date } from "./date";
+
 export const Reviews = async ({ reviews }: { reviews: any }) => {
-  return reviews.data.map((review: any) => (
-    <div className="flex flex-col gap-4" key={review.id}>
-      {/* USER */}
-      <div className="flex items-center gap-4 font-medium">
-        {/*<Image
-            src={review.customer.avatar_url}
-            alt=""
-            width={32}
-            height={32}
-            className="rounded-full"
-          />*/}
-        <span>{review.customer.display_name}</span>
+  return reviews.map((review: any, index: number) => (
+    <div className="flex flex-col gap-4" key={index}>
+      {/* UTILISATEUR */}
+      <div className="flex text-sm font-semibold">
+        <p>{review.reviewerName}</p>(
+        <span className="italic">{review.reviewerEmail}</span>)
       </div>
+
       {/* STARS */}
       <div className="flex gap-2">
-        {/*Array.from({ length: review.rating }).map((_, index) => (
-            <Image src="/star.png" alt="" key={index} width={16} height={16} />
-          ))*/}
+        {Array.from({ length: review.rating }).map((_, i) => (
+          <Star key={i} className="text-yellow-400" />
+        ))}
       </div>
-      {/* DESC */}
-      {review.heading && <p>{review.heading}</p>}
-      {review.body && <p>{review.body}</p>}
-      <div className="">
-        {review.media.map((media: any) => ({
-          /*<Image
-              src={media.url}
-              key={media.id}
-              alt=""
-              width={100}
-              height={50}
-              className="object-cover"
-            />*/
-        }))}
-      </div>
+      {/* DESCRIPTION */}
+      {review.comment && <p>{review.comment}</p>}
+      {review.date && (
+        <p className="italic text-xs">
+          <Date dateString={review.date} />
+        </p>
+      )}
     </div>
   ));
 };

@@ -4,7 +4,7 @@ import { fetchProduct } from "@/actions/product";
 import { AddToCart } from "@/components/partials/cart/add_to_cart";
 import { ProductImages } from "@/components/partials/product_images";
 import { Reviews } from "@/components/partials/reviews";
-import { SkeletonProductUI } from "@/components/skeleton/skeleton_product_ui";
+import { SkeletonProductDetailUI } from "@/components/skeleton/skeleton_product_detail_ui";
 import { ucfirst } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
 import { Suspense } from "react";
@@ -15,7 +15,7 @@ const SinglePage = ({ params }: { params: { slug: string } }) => {
     queryFn: () => fetchProduct(params.slug),
   });
 
-  if (isLoading) return <SkeletonProductUI />;
+  if (isLoading) return <SkeletonProductDetailUI />;
 
   if (isError) return <p>Une erreur s'est produite !</p>;
 
@@ -129,9 +129,11 @@ const SinglePage = ({ params }: { params: { slug: string } }) => {
         {data.reviews && (
           <>
             <h1 className="text-2xl">Avis Utilisateurs</h1>
-            {/*<Suspense fallback="Loading...">
-              <Reviews reviews={data.reviews} />
-            </Suspense>*/}
+            {
+              <Suspense fallback="Loading...">
+                <Reviews reviews={data.reviews} />
+              </Suspense>
+            }
           </>
         )}
       </div>
