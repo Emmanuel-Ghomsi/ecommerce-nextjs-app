@@ -86,7 +86,7 @@ Ce plugin améliore la productivité en assurant que les classes Tailwind sont u
 
 1. Clonez le dépôt GitHub :
    ```bash
-   git clone https://github.com/ton-utilisateur/nom-du-projet.git
+   git clone https://github.com/Emmanuel-Ghomsi/ecommerce-nextjs-app.git
    ```
 
 2. Installez les dépendances pour le projet :
