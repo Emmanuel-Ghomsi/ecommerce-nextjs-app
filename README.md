@@ -91,7 +91,7 @@ Ce plugin améliore la productivité en assurant que les classes Tailwind sont u
 
 2. Installez les dépendances pour le projet :
    ```bash
-   cd ecommerce-next-app
+   cd ecommerce-nextjs-app
    npm install
    # ou
    yarn install
